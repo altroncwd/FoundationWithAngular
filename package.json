@@ -1,0 +1,17 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "description": "basic template for building proof of concept",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "christopher decker",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "^1.5.0",
+    "angular-animate": "^1.5.2",
+    "angular-ui-router": "^0.2.18",
+    "express": "^4.13.4"
+  }
+}
