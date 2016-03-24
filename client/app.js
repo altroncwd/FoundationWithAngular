@@ -1,5 +1,9 @@
 angular.module('rts', [
-  'ui.router'
+  'ui.router',
+  'ngAnimate',
+  'rts.about',
+  'rts.board.logic',
+  'rts.board'
 ])
 // see zibzoo for more exmpales of how it works
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -7,13 +11,12 @@ angular.module('rts', [
      .state('index', {
         templateUrl: 'main/mainView.html',
         url: '/',
-        controller: ['$scope', function ($scope) {
-          $scope.test = 1234;
-        }]
+        controller: 'About'
       })
       .state('game', {
         templateUrl: 'gameroom/game.html',
-        url: '/game'
+        url: '/game',
+        controller: 'Board'
       })
 
       $urlRouterProvider.otherwise('/');
