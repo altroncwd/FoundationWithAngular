@@ -9,11 +9,19 @@
 
 <body>
   <div>
-    <h3>Just so I know something is here too...</h3>
+    <h3>Just so I know something is here too.........</h3>
+    <a ui-sref="index">Homes</a>
+    <a ui-sref="game">Game</a>
   </div>
  <hr>
 
+  <section class="container main" role="main">
+    <div ui-view></div>
+  </section>
 
-  <script src="../node_modules/angular/angular.js"></script>
+  <script src="/bower_modules/angular/angular.js"></script>
+  <script src="/bower_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="app.js"></script>
+  <!--<script src="gameroom/board.js"></script>-->
 </body>
 </html>

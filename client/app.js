@@ -1,22 +1,20 @@
 angular.module('rts', [
-  // put all the module dependancies in here
-  // main page information-logic
-  'ui.router',
-  'ngAnimate',
-  'rts.logic'
-  // I'll need one for the game board-room
-  // chess peices
-  // socketfactory ex...
+  'ui.router'
 ])
 // see zibzoo for more exmpales of how it works
   .config(function ($stateProvider, $urlRouterProvider) {
-
     $stateProvider
-      .state('landing', {
-        templateUrl: 'index.html',
+     .state('index', {
+        templateUrl: 'main/mainView.html',
         url: '/',
-        controller: 'About'
-      });
+        controller: ['$scope', function ($scope) {
+          $scope.test = 1234;
+        }]
+      })
+      .state('game', {
+        templateUrl: 'gameroom/game.html',
+        url: '/game'
+      })
 
       $urlRouterProvider.otherwise('/');
 
