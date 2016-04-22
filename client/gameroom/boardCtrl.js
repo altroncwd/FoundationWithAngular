@@ -8,6 +8,10 @@ angular
         console.log(this.box);
         this.box.push("nope"+($scope.box.length+1));
       }
+      $scope.makeBoard = function () {
+        console.log('new board');
+        BoardLogic.makeBoard(8);
+      }
 
       $scope.board = BoardLogic.board;
       $scope.log = function(row, columb, piece) {
@@ -25,11 +29,22 @@ angular
             console.log('same piece, reset');
             BoardLogic.currentPiece = BoardLogic.defaultPiece;
         }
-        //  -- FIX MY LOGIC --
-        // else if (-1 <= BoardLogic.currentPiece.row - row >= 1 &&
-        //          -1 <= BoardLogic.currentPiece.columb - columb <= 1 ){
-        //   console.log("we can move");
-        // }
+        else if( ((BoardLogic.currentPiece.row === row+1 || BoardLogic.currentPiece.row === row-1)
+                      && BoardLogic.currentPiece.columb === columb)
+                      ||
+                 ((BoardLogic.currentPiece.columb === columb+1 || BoardLogic.currentPiece.columb === columb-1)
+                      && BoardLogic.currentPiece.row === row)
+               ) {
+          console.log('its a valid move');
+          // now we can set a piece/take piece
+          if( piece !== null) {
+            console.log('You just took a piece');
+            // do something?
+          }
+          BoardLogic.board[row][columb].piece = BoardLogic.currentPiece.piece;
+          BoardLogic.board[BoardLogic.currentPiece.row][BoardLogic.currentPiece.columb].piece = null;
+          BoardLogic.currentPiece.piece = null;
+        }
         else {
           console.log('its a diffrent square your clicking on');
         }

@@ -14,6 +14,7 @@ angular
       }
       var board = [];
       var makeBoard = function (size) {
+        board = [];
         console.log('lets make a board');
         for(var i = 0; i < size; i++) {
           var row = [];
@@ -37,7 +38,8 @@ angular
       return {
         board: board,
         currentPiece: currentPiece,
-        defaultPiece: defaultPiece
+        defaultPiece: defaultPiece,
+        makeBoard: makeBoard
       };
 
     })
